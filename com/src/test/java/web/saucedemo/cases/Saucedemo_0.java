@@ -1,7 +1,8 @@
 package web.saucedemo.cases;
 
 import data.Credentials;
-import driver.DriverSetter;
+import driver.DriverSetup;
+import driver.DriverSetup.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Parameters;
@@ -17,7 +18,7 @@ public class Saucedemo_0 {
     @BeforeMethod
     @Parameters({"platform"})
     public void setUp(String platform) {
-        wd = new DriverSetter().setWebDriver(platform);
+        wd = new DriverSetup().chooseDriver(Platform.valueOf(platform));
         loginPage = new LoginPage(wd);
     }
 
