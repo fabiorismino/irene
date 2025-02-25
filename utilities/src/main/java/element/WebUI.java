@@ -12,24 +12,24 @@ import java.time.Duration;
 
 public class WebUI {
 
-    WebDriver wd;
+    static WebDriver wd;
 
     public WebUI(WebDriver wd) {
-        this.wd=wd;
+        WebUI.wd =wd;
         PageFactory.initElements(wd, this);
     }
 
-    FluentWait<WebDriver> wait = new FluentWait<>(wd).withTimeout(Duration.ofSeconds(60)).pollingEvery(Duration.ofSeconds(3)).
+    static FluentWait<WebDriver> wait = new FluentWait<>(wd).withTimeout(Duration.ofSeconds(60)).pollingEvery(Duration.ofSeconds(3)).
             ignoring(InvalidElementStateException.class).
             ignoring(NoSuchElementException.class).
             ignoring(ClassCastException.class);
 
-    public void click(WebElement element) {
+    public static void click(WebElement element) {
         wait.until(wd -> ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
 
-    public void setText(WebElement element, String text) {
+    public static void setText(WebElement element, String text) {
         wait.until(wd -> ExpectedConditions.visibilityOf(element));
         element.sendKeys(text);
     }

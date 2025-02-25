@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    WebUI webUI;
     WebDriver wd;
 
     @FindBy(xpath = "//*[@id=\"user-name\"]")
@@ -22,20 +21,19 @@ public class LoginPage {
 
     public LoginPage(WebDriver wd) {
         this.wd=wd;
-        webUI = new WebUI(wd);
         PageFactory.initElements(wd, this);
     }
 
     public void setUsername(String username) {
-        webUI.setText(fieldUsername, username);
+        WebUI.setText(fieldUsername, username);
     }
 
     public void setPassword(String password) {
-        webUI.setText(fieldPassword, password);
+        WebUI.setText(fieldPassword, password);
     }
 
     public void clickButtonLogin() {
-        webUI.click(buttonLogin);
+        WebUI.click(buttonLogin);
     }
 
     public void doLogin(String username, String password) {

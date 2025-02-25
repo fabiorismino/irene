@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import web.saucedemo.pages.LoginPage;
 import org.testng.annotations.BeforeMethod;
 
-public class Case0 extends DriverSetter {
+public class Saucedemo_0 {
 
     WebDriver wd;
     LoginPage loginPage;
@@ -17,7 +17,7 @@ public class Case0 extends DriverSetter {
     @BeforeMethod
     @Parameters({"platform"})
     public void setUp(String platform) {
-        wd = new DriverSetter().chooseDriver(platform);
+        wd = new DriverSetter().setWebDriver(platform);
         loginPage = new LoginPage(wd);
     }
 

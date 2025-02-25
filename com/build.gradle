@@ -4,18 +4,15 @@ plugins {
 
 group = 'com'
 version = '1.0.0'
+apply from: '../deps.gradle'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation globalDeps
     implementation project(':utilities')
-    implementation 'org.yaml:snakeyaml:latest.release' //YML
-    implementation 'org.testng:testng:latest.release' //TestNG
-    implementation 'io.appium:java-client:latest.release' //Appium
-    implementation 'com.aventstack:extentreports:latest.release' //ExtentReport
-    implementation 'org.seleniumhq.selenium:selenium-java:latest.release' //Selenium
 }
 
 test {

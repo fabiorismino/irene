@@ -2,11 +2,16 @@ name: NRT saucedemo.com
 
 tests:
   - name: Regression on Chrome browser
-    parameters: { platform: Chrome}
+    parameters: { platform: CHROME_DESKTOP}
     classes:
-      - web.saucedemo.cases.Case0
+      - web.saucedemo.cases.Saucedemo_0
 
-  - name: Regression on Safari browser
-    parameters: { platform: Safari }
+#  - name: Regression on Safari browser
+#    parameters: { platform: SAFARI_DESKTOP }
+#    classes:
+#    - web.saucedemo.cases.Case0
+
+  - name: Regression on Firefox browser
+    parameters: { platform: FIREFOX_DESKTOP}
     classes:
-    - web.saucedemo.cases.Case0
+      - web.saucedemo.cases.Saucedemo_0

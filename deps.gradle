@@ -1,0 +1,9 @@
+ext {
+    globalDeps = [
+            'org.yaml:snakeyaml:latest.release', //YML
+            'org.testng:testng:latest.release', //TestNG
+            'io.appium:java-client:latest.release', //Appium
+            'com.aventstack:extentreports:latest.release', //ExtentReport
+            'org.seleniumhq.selenium:selenium-java:latest.release' //Selenium
+    ]
+}
