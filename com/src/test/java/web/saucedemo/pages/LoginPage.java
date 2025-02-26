@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    WebDriver wd;
+    WebDriver wD;
 
     @FindBy(xpath = "//*[@id=\"user-name\"]")
     WebElement fieldUsername;
@@ -19,26 +19,19 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"login-button\"]")
     WebElement buttonLogin;
 
-    public LoginPage(WebDriver wd) {
-        this.wd=wd;
-        PageFactory.initElements(wd, this);
+    @FindBy(xpath = "//*[@class=\"login-box\"]")
+    WebElement boxLogin;
+
+    public LoginPage(WebDriver wD) {
+        this.wD = wD;
+        PageFactory.initElements(wD, this);
     }
 
-    public void setUsername(String username) {
+    public void doLoginAndVerify(String username, String password) {
+        WebUI.verifyElementPresent(boxLogin);
         WebUI.setText(fieldUsername, username);
-    }
-
-    public void setPassword(String password) {
         WebUI.setText(fieldPassword, password);
-    }
-
-    public void clickButtonLogin() {
         WebUI.click(buttonLogin);
-    }
-
-    public void doLogin(String username, String password) {
-        setUsername(username);
-        setPassword(password);
-        clickButtonLogin();
+        WebUI.verifyElementNotPresent(boxLogin);
     }
 }
