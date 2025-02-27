@@ -26,30 +26,30 @@ public class WebUI {
             ignoring(ClassCastException.class);
 
     public static void click(WebElement element) {
-        wait.until(wd -> ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
 
     public static String getText(WebElement element) {
-        wait.until(wd -> ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
         return (element.getText());
     }
 
     public static void setText(WebElement element, String text) {
-        wait.until(wd -> ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
         element.sendKeys(text);
     }
 
     public static void verifyElementPresent(WebElement element) {
-        wait.until(wd -> ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public static void verifyElementNotPresent(WebElement element) {
-        wait.until(wd -> ExpectedConditions.invisibilityOf(element));
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     public static void verifyElementsPresent(List<WebElement> elements) {
-        wait.until(wd -> ExpectedConditions.visibilityOfAllElements(elements));
+        wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
     public static void verifyElementsNotPresent(List<WebElement> elements) {
